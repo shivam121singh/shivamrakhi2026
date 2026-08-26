@@ -94,23 +94,30 @@
 </head>
 <body class="relative min-h-screen pb-28 md:pb-16 selection:bg-rose-600 selection:text-white">
 
+  <!-- Top Sticky Announcement Bar -->
+  <div class="sticky top-0 z-40 w-full bg-gradient-to-r from-rose-950/95 via-amber-950/95 to-rose-950/95 border-b border-amber-400/40 py-2 px-4 text-center backdrop-blur-md shadow-lg">
+    <p class="text-xs sm:text-sm font-bold text-amber-300 flex items-center justify-center gap-2">
+      <span>🌸</span>
+      <span>A Special Rakhi Gift from <b class="text-white underline decoration-amber-400">Shivam Singh</b> with Love!</span>
+      <span>🌸</span>
+    </p>
+  </div>
+
   <!-- Petals Physics Rain Layer -->
   <canvas id="petalCanvas"></canvas>
 
-  <!-- Audio Controller with Multi-Track Player -->
-  <audio id="bgMusic" loop preload="auto">
-    <source id="audioSource" src="song1_[cut_235sec].mp3" type="audio/mp3">
-  </audio>
+  <!-- Audio Controller with Direct Relative Paths -->
+  <audio id="bgMusic" loop preload="auto" playsinline src="./song1_[cut_235sec].mp3"></audio>
 
   <!-- Floating Audio Dock -->
-  <div class="fixed top-4 right-4 z-40 flex items-center gap-2">
-    <select id="trackSelector" onchange="changeTrack(this.value)" class="bg-black/70 text-amber-300 border border-yellow-500/40 text-[10px] sm:text-xs rounded-full px-2.5 py-1.5 backdrop-blur-xl focus:outline-none">
-      <option value="song1_[cut_235sec].mp3">🪈 Dhago Se Bandha</option>
-      <option value="song2.mp3">🪕Raksha bandhan Wada Hai</option>
-      <option value="song3.mp3">Phulon Ka Taron Ka </option>
+  <div class="fixed top-12 sm:top-14 right-4 z-40 flex items-center gap-2">
+    <select id="trackSelector" onchange="changeTrack(this.value)" class="bg-black/80 text-amber-300 border border-yellow-500/50 text-[10px] sm:text-xs rounded-xl px-3 py-2 backdrop-blur-xl focus:outline-none shadow-xl max-w-[170px] sm:max-w-xs truncate">
+      <option value="./song1_[cut_235sec].mp3">🪈 Dhago Se Bandha (Main)</option>
+      <option value="./song1.mp3">🎵 Full Song (song1.mp3)</option>
+      <option value="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-instrumental-flute-112194.mp3">🪈 Traditional Flute</option>
     </select>
 
-    <button id="musicToggleBtn" class="flex items-center gap-2 bg-black/70 hover:bg-black/90 border border-yellow-500/40 p-2.5 rounded-full backdrop-blur-xl shadow-2xl text-yellow-300 active:scale-95 transition-all">
+    <button id="musicToggleBtn" class="flex items-center justify-center gap-2 bg-black/80 hover:bg-black/90 border border-yellow-500/50 p-2.5 rounded-xl backdrop-blur-xl shadow-2xl text-yellow-300 active:scale-95 transition-all">
       <i data-lucide="music" id="musicIcon" class="w-4 h-4"></i>
     </button>
   </div>
@@ -433,15 +440,17 @@
             <span class="text-xs sm:text-sm font-semibold text-white">Always Together 💫</span>
           </div>
         </div>
-                <div onclick="openLightbox(this.querySelector('img').src, 'Infinite Memories to Come 💫', 'Forever')" class="photo-3d-card w-48 sm:w-64 h-64 sm:h-80 rounded-2xl overflow-hidden relative flex-shrink-0 glass-box border border-rose-400/40 shadow-2xl">
-          <img src="mavi3.jpeg" class="w-full h-full object-cover pointer-events-none" alt="Memory 11" />
+
+        <div onclick="openLightbox(this.querySelector('img').src, 'Infinite Memories to Come 💫', 'Forever')" class="photo-3d-card w-48 sm:w-64 h-64 sm:h-80 rounded-2xl overflow-hidden relative flex-shrink-0 glass-box border border-rose-400/40 shadow-2xl">
+          <img src="mavi3.jpeg" class="w-full h-full object-cover pointer-events-none" alt="Memory 12" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-3.5">
             <span class="text-[10px] text-purple-300 font-bold uppercase tracking-wider">Infinity</span>
             <span class="text-xs sm:text-sm font-semibold text-white">Always Together 💫</span>
           </div>
         </div>
-                <div onclick="openLightbox(this.querySelector('img').src, 'Infinite Memories to Come 💫', 'Forever')" class="photo-3d-card w-48 sm:w-64 h-64 sm:h-80 rounded-2xl overflow-hidden relative flex-shrink-0 glass-box border border-rose-400/40 shadow-2xl">
-          <img src="puja3.jpeg" class="w-full h-full object-cover pointer-events-none" alt="Memory 11" />
+
+        <div onclick="openLightbox(this.querySelector('img').src, 'Infinite Memories to Come 💫', 'Forever')" class="photo-3d-card w-48 sm:w-64 h-64 sm:h-80 rounded-2xl overflow-hidden relative flex-shrink-0 glass-box border border-rose-400/40 shadow-2xl">
+          <img src="puja3.jpeg" class="w-full h-full object-cover pointer-events-none" alt="Memory 13" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-3.5">
             <span class="text-[10px] text-purple-300 font-bold uppercase tracking-wider">Infinity</span>
             <span class="text-xs sm:text-sm font-semibold text-white">Always Together 💫</span>
@@ -460,7 +469,6 @@
 
       <!-- Wheel Graphic -->
       <div class="relative w-56 h-56 mx-auto mb-6 flex items-center justify-center">
-        <!-- Pointer Arrow -->
         <div class="absolute -top-3 z-30 text-2xl text-yellow-400 drop-shadow-md">🔻</div>
         
         <div id="spinWheel" class="w-full h-full rounded-full border-4 border-yellow-400/80 shadow-2xl bg-gradient-to-tr from-rose-900 via-amber-800 to-red-900 flex items-center justify-center relative overflow-hidden">
@@ -488,7 +496,7 @@
 
       <div class="space-y-3 mb-5">
         <input type="text" id="recipientInput" placeholder="Sibling's Name (e.g., Priya)" class="w-full bg-black/60 border border-amber-400/30 text-white rounded-xl px-4 py-3 text-xs md:text-sm focus:outline-none focus:border-amber-400 placeholder-white/30" />
-        <input type="text" id="senderInput" placeholder="Your Name (e.g., Shivam)" class="w-full bg-black/60 border border-amber-400/30 text-white rounded-xl px-4 py-3 text-xs md:text-sm focus:outline-none focus:border-amber-400 placeholder-white/30" />
+        <input type="text" id="senderInput" value="Shivam Singh" placeholder="Your Name" class="w-full bg-black/60 border border-amber-400/30 text-white rounded-xl px-4 py-3 text-xs md:text-sm focus:outline-none focus:border-amber-400 placeholder-white/30" />
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
@@ -546,7 +554,6 @@
     lucide.createIcons();
 
     const audio = document.getElementById('bgMusic');
-    const audioSource = document.getElementById('audioSource');
     const musicBtn = document.getElementById('musicToggleBtn');
     const musicIcon = document.getElementById('musicIcon');
     const welcomeScreen = document.getElementById('welcomeScreen');
@@ -556,14 +563,36 @@
     let isPlaying = false;
     let selectedCharm = '🪷';
 
-    // Track Switcher
+    // Reliable Multi-Track Switcher
     function changeTrack(url) {
+      const wasPlaying = isPlaying;
       audio.pause();
-      audioSource.src = url;
+      audio.src = url;
       audio.load();
-      if (isPlaying) {
-        audio.play().catch(()=>{});
+      if (wasPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          updateAudioUI(true);
+        }).catch(err => console.log("Audio switched:", err));
       }
+    }
+
+    function updateAudioUI(playing) {
+      if (playing) {
+        musicIcon.setAttribute('data-lucide', 'volume-2');
+      } else {
+        musicIcon.setAttribute('data-lucide', 'volume-x');
+      }
+      lucide.createIcons();
+    }
+
+    function playAudioEngine() {
+      audio.play().then(() => {
+        isPlaying = true;
+        updateAudioUI(true);
+      }).catch(err => {
+        console.log("Audio awaiting gesture:", err);
+      });
     }
 
     // Dynamic URL Parameter Handling
@@ -572,35 +601,38 @@
     const fromName = urlParams.get('from');
 
     if (toName || fromName) {
-      document.getElementById('customHeaderTitle').textContent = `To ${toName || 'My Sibling'} • From ${fromName || 'Your Sibling'}`;
+      document.getElementById('customHeaderTitle').textContent = `To ${toName || 'My Sibling'} • From ${fromName || 'Shivam Singh'}`;
     }
 
-    // Autoplay Unlock on First Gesture
+    // Direct Gesture Unlock on Open Button
     startBtn.addEventListener('click', () => {
       welcomeScreen.classList.add('opacity-0', 'pointer-events-none');
       setTimeout(() => welcomeScreen.remove(), 700);
 
-      audio.play().then(() => {
-        isPlaying = true;
-        musicIcon.setAttribute('data-lucide', 'volume-2');
-        lucide.createIcons();
-      }).catch(() => {});
-
+      playAudioEngine();
       playChime();
       confettiBurst();
     });
+
+    // Fallback Window Tap Listener to Unlock Audio on Any Touch
+    function unlockAudioOnFirstTap() {
+      if (!isPlaying) {
+        playAudioEngine();
+      }
+      window.removeEventListener('click', unlockAudioOnFirstTap);
+      window.removeEventListener('touchstart', unlockAudioOnFirstTap);
+    }
+    window.addEventListener('click', unlockAudioOnFirstTap, { once: true });
+    window.addEventListener('touchstart', unlockAudioOnFirstTap, { once: true });
 
     musicBtn.addEventListener('click', () => {
       if (isPlaying) {
         audio.pause();
         isPlaying = false;
-        musicIcon.setAttribute('data-lucide', 'volume-x');
+        updateAudioUI(false);
       } else {
-        audio.play();
-        isPlaying = true;
-        musicIcon.setAttribute('data-lucide', 'volume-2');
+        playAudioEngine();
       }
-      lucide.createIcons();
     });
 
     function scrollToSection(id) {
@@ -665,7 +697,7 @@
     function spinWheelAction() {
       const wheel = document.getElementById('spinWheel');
       const resultText = document.getElementById('wheelOutcome');
-      const randomSpin = Math.floor(Math.random() * 360) + 1440; // 4 full spins minimum
+      const randomSpin = Math.floor(Math.random() * 360) + 1440;
       currentDegree += randomSpin;
       wheel.style.transform = `rotate(${currentDegree}deg)`;
 
@@ -681,7 +713,7 @@
     // Speech Synthesis Wish Reader
     function speakWish() {
       if ('speechSynthesis' in window) {
-        const text = "Wishing you a very Happy Raksha Bandhan! May our bond of love, laughter, and lifelong protection stay strong and blessed forever.";
+        const text = "Wishing you a very Happy Raksha Bandhan from Shivam Singh! May our bond of love, laughter, and lifelong protection stay strong and blessed forever.";
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 0.95;
         utterance.pitch = 1.1;
@@ -709,12 +741,7 @@
     }
 
     function confettiBurst() {
-      confetti({
-        particleCount: 65,
-        spread: 75,
-        origin: { y: 0.65 },
-        colors: ['#facc15', '#f43f5e', '#fbbf24', '#ffffff']
-      });
+      confetti({ particleCount: 65, spread: 75, origin: { y: 0.65 }, colors: ['#facc15', '#f43f5e', '#fbbf24', '#ffffff'] });
     }
 
     // Lightbox Modal
@@ -734,14 +761,13 @@
     // Greeting Card Download Canvas Generator
     function downloadGreetingCard() {
       const recipient = document.getElementById('recipientInput').value.trim() || 'My Sibling';
-      const sender = document.getElementById('senderInput').value.trim() || 'Your Sibling';
+      const sender = document.getElementById('senderInput').value.trim() || 'Shivam Singh';
 
       const cardCanvas = document.createElement('canvas');
       cardCanvas.width = 800;
       cardCanvas.height = 1000;
       const c = cardCanvas.getContext('2d');
 
-      // Gradient Background
       const g = c.createLinearGradient(0, 0, 800, 1000);
       g.addColorStop(0, '#3d050e');
       g.addColorStop(0.5, '#1a0308');
@@ -749,12 +775,10 @@
       c.fillStyle = g;
       c.fillRect(0, 0, 800, 1000);
 
-      // Gold Borders
       c.strokeStyle = '#facc15';
       c.lineWidth = 8;
       c.strokeRect(30, 30, 740, 940);
 
-      // Card Content
       c.fillStyle = '#facc15';
       c.font = 'bold 36px sans-serif';
       c.textAlign = 'center';
@@ -849,35 +873,14 @@
 
       bindEvents() {
         this.container.addEventListener('mouseenter', () => this.isHovered = true);
-        this.container.addEventListener('mouseleave', () => {
-          this.isHovered = false;
-          this.isDragging = false;
-        });
-
-        const onStart = (e) => {
-          this.isDragging = true;
-          this.startX = e.pageX || (e.touches && e.touches[0].pageX);
-          this.lastX = this.startX;
-          this.dragVelocity = 0;
-        };
-
-        const onMove = (e) => {
-          if (!this.isDragging) return;
-          const currentX = e.pageX || (e.touches && e.touches[0].pageX);
-          const delta = currentX - this.lastX;
-          this.position += delta;
-          this.dragVelocity = delta;
-          this.lastX = currentX;
-        };
-
-        const onEnd = () => {
-          this.isDragging = false;
-        };
+        this.container.addEventListener('mouseleave', () => { this.isHovered = false; this.isDragging = false; });
+        const onStart = (e) => { this.isDragging = true; this.startX = e.pageX || (e.touches && e.touches[0].pageX); this.lastX = this.startX; this.dragVelocity = 0; };
+        const onMove = (e) => { if (!this.isDragging) return; const currentX = e.pageX || (e.touches && e.touches[0].pageX); const delta = currentX - this.lastX; this.position += delta; this.dragVelocity = delta; this.lastX = currentX; };
+        const onEnd = () => { this.isDragging = false; };
 
         this.container.addEventListener('mousedown', onStart);
         window.addEventListener('mousemove', onMove);
         window.addEventListener('mouseup', onEnd);
-
         this.container.addEventListener('touchstart', onStart, { passive: true });
         window.addEventListener('touchmove', onMove, { passive: true });
         window.addEventListener('touchend', onEnd);
@@ -885,7 +888,6 @@
 
       animate() {
         this.halfWidth = this.track.scrollWidth / 2;
-
         if (!this.isDragging) {
           if (Math.abs(this.dragVelocity) > 0.05) {
             this.position += this.dragVelocity;
@@ -895,23 +897,18 @@
             this.position += currentSpeed * this.direction;
           }
         }
-
-        if (this.position <= -this.halfWidth) {
-          this.position += this.halfWidth;
-        } else if (this.position >= 0) {
-          this.position -= this.halfWidth;
-        }
+        if (this.position <= -this.halfWidth) this.position += this.halfWidth;
+        else if (this.position >= 0) this.position -= this.halfWidth;
 
         this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
         requestAnimationFrame(this.animate);
       }
     }
 
-   window.addEventListener('DOMContentLoaded', () => {
-  // Increase speed: 2.0 (Fast) or 3.5 (Very Fast)
-  new FlexibleMarquee3D('lane1-container', 'lane1-track', 2.2, -1); // Upper Lane
-  new FlexibleMarquee3D('lane2-container', 'lane2-track', 1.8, 1);  // Lower Lane
-});
+    window.addEventListener('DOMContentLoaded', () => {
+      new FlexibleMarquee3D('lane1-container', 'lane1-track', 2.2, -1);
+      new FlexibleMarquee3D('lane2-container', 'lane2-track', 1.8, 1);
+    });
 
     // Custom Uploaded Image
     function uploadCustomMemory(event) {
@@ -950,30 +947,18 @@
     class Petal {
       constructor() { this.reset(); }
       reset() {
-        this.x = Math.random() * width;
-        this.y = -20;
-        this.size = Math.random() * 6 + 5;
-        this.speedX = Math.random() * 1.5 - 0.75;
-        this.speedY = Math.random() * 1.2 + 0.8;
-        this.angle = Math.random() * 360;
-        this.spin = Math.random() * 0.03 - 0.015;
+        this.x = Math.random() * width; this.y = -20; this.size = Math.random() * 6 + 5;
+        this.speedX = Math.random() * 1.5 - 0.75; this.speedY = Math.random() * 1.2 + 0.8;
+        this.angle = Math.random() * 360; this.spin = Math.random() * 0.03 - 0.015;
         this.color = Math.random() > 0.5 ? '#f59e0b' : '#ef4444';
       }
       update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.angle += this.spin;
+        this.x += this.speedX; this.y += this.speedY; this.angle += this.spin;
         if (this.y > height + 20) this.reset();
       }
       draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle);
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.fillStyle = this.color;
+        ctx.beginPath(); ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       }
     }
 
